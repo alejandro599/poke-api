@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.pokedex{
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap ;
+}
