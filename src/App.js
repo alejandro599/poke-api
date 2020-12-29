@@ -8,7 +8,7 @@ import { FavoriteProvider } from "./contexts/FavouriteContext";
 
 const localStorageKey = "favorite_pokemon";
 function App() {
-  const [pokemons, setPokemons] = useState("");
+  const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);

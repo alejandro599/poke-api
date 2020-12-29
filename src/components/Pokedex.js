@@ -1,39 +1,40 @@
-import React from 'react'
-import '../style/Pokedex.scss';
-import Pagination from './Pagination';
+import React from "react";
+import "../style/Pokedex.scss";
+import Pagination from "./Pagination";
 import Pokemon from "./Pokemon";
-const Pokedex = (props) => {
-    const  {pokemons, page, setPage, total, loading} = props;
-    const lastPage= ()=>{
-        const nextPage = Math.max(page -1, 0);
-        setPage(nextPage)
-    }
-    const nextPage= ()=>{
-        const nextPage = Math.min(page + 1, total);
-        setPage(nextPage)
-    }
-    
-    return (
-        <>
-        <div className="header">
+function Pokedex(props) {
+  const { pokemons, page, setPage, total, loading } = props;
+  const lastPage = () => {
+    const nextPage = Math.max(page - 1, 0);
+    setPage(nextPage);
+  };
+  const nextPage = () => {
+    const nextPage = Math.min(page + 1, total);
+    setPage(nextPage);
+  };
+
+  return (
+    <>
+      <div className="header">
         <h1>Pokedex</h1>
         <Pagination
-           page={page + 1}
-           totalPages={total}
-           onLeftClick={lastPage}
-           onRightClick={nextPage}
+          page={page + 1}
+          totalPages={total}
+          onLeftClick={lastPage}
+          onRightClick={nextPage}
         />
+      </div>
+      {loading ? (
+        <div>Cargando pokemones...</div>
+      ) : (
+        <div className="pokedex">
+          {pokemons.map((pokemon, idx) => {
+            return <Pokemon pokemon={pokemon} key={pokemon.name} />;
+          })}
         </div>
-        {loading ? <div>Cargando Pokemones...</div> :
-        <div className="pokedex" >
-        {pokemons.map(pokemon=>{
-                return (<Pokemon pokemon= {pokemon} key = {pokemon.name}/>
-                );
-                })}
-        </div>
-         }
-        </>
-    )
+      )}
+    </>
+  );
 }
 
 export default Pokedex;
