@@ -6,9 +6,9 @@ function SearchBar(props) {
   const [search, setSearch] = useState("");
   //const [pokemon, setPokemon] = useState("");
   const onChange = (e) => {
-    setSearch(e.target.value);
+    setSearch(e.target.value.toLowerCase().trim());
     if(e.target.value.length === 0){
-      onSearch (null);
+      onSearch (null)
     }
   };
   const onClick = async (e) => {
