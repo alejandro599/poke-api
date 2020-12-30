@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  
+
   box-sizing: border-box;
   input {
     align-self: center;
@@ -17,23 +17,42 @@
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    box-shadow: 0 15px 10px rgba(0,0,0, 0.5);
-    border:none;
-    &:focus{
-        outline:none ;
-       
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.5);
+    border: none;
+    &:focus {
+      outline: none;
     }
-    
   }
   .button {
     padding: 15px;
     font-size: 20px;
     margin-left: 30px;
     background-color: red;
-    border: 1px solid black;
-    box-shadow: 0 5px 10px rgba(0,0,0, 0.5);
+
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     color: #fff;
-}
+    position: relative;
+    transition: all 0.5s;
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      animation: button 1s;
+      outline: none;
+      border: none;
+    }
+  }
 }
 
+@keyframes button {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -50px;
+  }
+  100% {
+    top: 0;
+  }
+}

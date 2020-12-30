@@ -39,7 +39,7 @@ function Pokemon(props) {
             })}
           </div>
           <button onClick={clickHeart} >
-          <p>{heart}</p>
+          <p className="heart">{heart}</p>
           </button>
           
         </div>

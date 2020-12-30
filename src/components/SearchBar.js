@@ -15,6 +15,11 @@ function SearchBar(props) {
     onSearch(search);
     //setPokemon(data);
   };
+  const onKey =  (ev)=>{
+    if(ev.key === 'Enter'){
+      onSearch(search);
+    }
+  }
   return (
     <>
       <div className="container">
@@ -22,6 +27,7 @@ function SearchBar(props) {
           onChange={onChange}
           type="text"
           placeholder="Buscar Pokemón..."
+          onKeyPress={onKey}
         />
         <button className="button" onClick={onClick}>Buscar</button>
       

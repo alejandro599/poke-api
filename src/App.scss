@@ -41,33 +41,44 @@
 }
 .pokedex {
   width: 100%;
-  border: 1px solid blue;
+
   height: 100vh;
   display: flex;
   justify-content: center;
   .pokemon-card {
-   
     width: 500px;
     height: 150px;
     margin: 20px;
     display: flex;
     flex-direction: row;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s;
+    border-radius: 20px;
+    &:hover {
+      transform: scale(1.2);
+      z-index: 20;
+    }
     .pokemon-img-container {
-     
       display: flex;
       align-items: center;
+      
       .pokemon-img {
         width: 200px;
         height: 200px;
+        position: relative;
+        &:hover {
+          animation: imga 1s;
+        }
       }
     }
+
     .card {
       display: flex;
       flex-direction: column;
-      
+
       width: 100%;
       box-sizing: border-box;
+
       .card-top {
         height: 50%;
         display: flex;
@@ -77,9 +88,9 @@
         font-size: 30px;
         text-transform: capitalize;
         box-sizing: border-box;
+        
       }
       .card-bottom {
-        
         height: 50%;
 
         display: flex;
@@ -91,10 +102,27 @@
         box-sizing: border-box;
         flex-direction: row;
         font-size: 20px;
-        .pokemon-type{
+        transition: all 0.5s;
+        button {
+          background-color: #fff;
+          border: 1px solid rgb(57, 57, 63);
+          border-radius: 50%;
+          transition: all 0.5s;
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+          outline: none;
+          
+        }
+        p {
+          font-size: 20px;
+        }
+        .heart:hover {
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+        .pokemon-type {
           display: flex;
           flex-direction: row;
-          .pokemon-type-text{
+          .pokemon-type-text {
             margin-left: -10px;
             padding: 10px;
           }
@@ -102,17 +130,15 @@
       }
     }
   }
-  
 }
-.pagination-container{
-  border: 1px solid blue;
+.pagination-container {
   width: 200px;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  button{
+  button {
     width: 40px;
     height: 40px;
     margin: 10px;
@@ -120,10 +146,35 @@
     color: white;
     border: none;
     border-radius: 50%;
+    outline: none;
+    &:hover{
+      cursor: pointer;
+    }
+    &:active{
+      color: #000;
+      background-color:#fff ;
+      outline: none;
+      border: none;
+      box-shadow: 0 10px 10px rgba(0,0,0,  1.0);
+    }
   }
 }
-.not-found{
-font-size: 20px;
-color: green;
+.not-found {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 50px;
 }
-
+@keyframes imga {
+  0% {
+    top: 0;
+  }
+  50%{
+    top: -20px;
+    transform: scale(1.4);
+  }
+  
+  100% {
+    top: 0px;
+  }
+}
